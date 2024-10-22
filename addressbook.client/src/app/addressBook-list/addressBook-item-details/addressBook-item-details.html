@@ -1,0 +1,45 @@
+<div class="modal-bg">
+  <div class="modal">
+    @if(!errorOccured){
+    @if(currentData){
+    <div style="display:flex; align-items:center;">
+      <img src="/images/{{currentData.imageName}}" style="width:100px; border-radius:50%;" />
+      <div>
+        <div class="center">
+          <span class="material-symbols-outlined">
+            person
+          </span>Full Name: {{currentData.firstName}}  {{currentData.lastName}}<br />
+        </div>
+        <div class="center">
+          <span class="material-symbols-outlined">
+            call
+          </span>Phone Number: {{currentData.phoneNumber}}<br />
+        </div>
+        <div class="center">
+          <span class="material-symbols-outlined">
+            location_on
+          </span>Address: {{currentData.address}}<br />
+        </div>
+      </div>
+    </div>
+    }
+    @else{
+    Loading...
+    }
+
+    <div style="height: 200px;"
+         leaflet
+         [leafletOptions]="options"
+         (leafletMapReady)="onMapReady($event)"
+         [leafletLayers]="locationLayer">
+    </div>
+    }
+    @else{
+    <div>
+      Ops...An error occured plese retry later.
+    </div>
+    }
+
+    <button (click)="closeModal()" class="closeButton">Close</button>
+  </div>
+</div>

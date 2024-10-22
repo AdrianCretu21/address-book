@@ -1,0 +1,21 @@
+<div>
+    <h1>Address Book</h1>
+    @if(!errorOccured){
+        @if(!addressBooks){
+            <div>Loading...</div>
+        }
+        @else if(addressBooks.length == 0)
+        {
+            <div>There are no any address books availables</div>
+        }
+        @else{
+            <addressBook-list [addressBooks]="addressBooks"></addressBook-list>
+        }
+    }
+    @else{
+        <div>
+            Ops...An error occured plese retry later.
+        </div>
+    }
+
+</div>

@@ -1,0 +1,8 @@
+<div style="padding:10px;display:flex; flex-wrap: wrap; gap: 10px; ">
+    @for(address of addressBooks; track address.id){
+    <addressBook-item [address]="address" (click)="openDetails(address)"></addressBook-item>
+    }
+    @if(selectedAddressBook){
+    <addressBook-item-details [selectedAddress]="selectedAddressBook" (visibilityChange)="selectedAddressBook = undefined;"></addressBook-item-details>
+    }
+</div>
